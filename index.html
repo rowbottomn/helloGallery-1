@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+      <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-slice9-component/dist/aframe-slice9-component.min.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id = "sixnaymap" src = "SixNationsTerritories1720.jpg" crossorigin="anonymous">
+
+      </a-assets>
+      <a-sky color="skyblue"></a-sky>
+       <a-video  src = "test.mp4" width="16" height="9" autoplay webkit-playsinline playsinline position="0 0 -20"
+       ></a-video>
+      <a-plane src="#sixnaymap" width="6" height="4" position="0 0.5 -3" material="" geometry="" id="sixnaymap1720">
+        <a-plane class="clickable" position="-0.99806 1.6762 0.01" scale="0.3 0.3 1" material="" geometry="" id="tusc-sq"></a-plane>
+        <a-plane class="clickable" position="0.0281 1.67321 0.01" scale="0.3 0.3 1" material="" geometry="" id="moha-sq"></a-plane>
+        <a-plane class="clickable" position="-0.48911 1.67206 0.01" scale="0.3 0.3 1" material="" geometry="" id="onei-sq"></a-plane>
+        <a-plane class="clickable" position="-2.5514 1.67733 0.01" scale="0.3 0.3 1" material="" geometry="" id="sene-sq"></a-plane>
+        <a-plane class="clickable" position="-1.5235 1.66792 0.01" scale="0.3 0.3 1" material="" geometry="" id="onon-sq"></a-plane>
+        <a-plane class="clickable" position="-2.03691 1.65965 0.01" scale="0.3 0.3 1" material="" geometry="" id="cayu-sq"></a-plane>
+      </a-plane>
+
+      <a-camera position = "0 1.6 0">
+        <a-cursor id = "cursor" scale = "0.4 0.4 1" transparent = "true" opacity= "0.4" fuse = "true" raycaster = "objects: .clickable"
+          event-set__mouseenter="_target : #fuse-indicator; visible: true"
+          event-set__mouseleave="_target : #fuse-indicator; visible: false; geometry.thetaLength : 360"
+
+
+          event-set__fusing1="_event:fusing; _target : #fuse-indicator; geometry.thetaLength : 72; _delay : 0; opacity : 0.3"
+          event-set__fusing2="_event:fusing; _target : #fuse-indicator; geometry.thetaLength : 154; _delay : 300; opacity : 0.5"
+          event-set__fusing3="_event:fusing; _target : #fuse-indicator; geometry.thetaLength : 226; _delay : 600; opacity : 0.7"
+          event-set__fusing4="_event:fusing; _target : #fuse-indicator; geometry.thetaLength : 298; _delay : 900; opacity : 0.8"
+          event-set__fusing5="_event:fusing; _target : #fuse-indicator; geometry.thetaLength : 360; _delay : 1200;opacity : 0.9"
+          event-set__fusing6="_event:fusing; _target : #fuse-indicator; geometry.thetaLength : 0; _delay : 1600"
+          >
+          <a-ring id= "fuse-indicator" scale = "0.2 0.2 1" transparent = "true" opacity = "0.4" visible = "false" color = "#8E6"></a-ring>
+          <a-animation begin = "mouseenter" attribute = "geometry.thetaLength" from = "0" to = "360"> </a-animation>
+          <a-entity id = "hudup_info" 9slice></a-entity>
+          
+        </a-cursor>
+      </a-camera>
+    </a-scene>
+
+    <script src="script.js"></script>
+  </body>
+</html>
